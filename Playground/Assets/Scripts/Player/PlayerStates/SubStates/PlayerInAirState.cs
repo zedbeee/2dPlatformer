@@ -32,7 +32,7 @@ public class PlayerInAirState : PlayerState
         xInput = player.InputHandler.NormInputX;
 
         if (isGrounded && player.CurrentVelocity.y < 0.01f){
-            stateMachine.ChangeState(player.LandState);
+            stateMachine.ChangeState(player.IdleState);
         }
         else {
             player.CheckIfShouldFlip(xInput);

@@ -5,7 +5,7 @@ using UnityEngine;
 public class dg_simpleCamFollow : MonoBehaviour
 {
     public Transform target;
-    [Range(1f,40f)] public float laziness = 10f;
+    [Range(1f,40f)] public float laziness = 0f;
     public bool lookAtTarget = true;
     public bool takeOffsetFromInitialPos = true;
     public Vector3 generalOffset;

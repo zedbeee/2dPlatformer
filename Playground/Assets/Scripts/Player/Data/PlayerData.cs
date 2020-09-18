@@ -9,10 +9,10 @@ public class PlayerData : ScriptableObject
     public float movementVelocity = 10f;
 
     [Header("Jump State")]
-    public float jumpVelocity = 15f;
+    public float jumpVelocity = 5f;
 
     [Header("Turn State")]
-    public float turnVelocity = 2f;
+    public float turnVelocity = 5f;
 
     [Header("Check Variables")]
     public float groundCheckRadius = 0.3f;

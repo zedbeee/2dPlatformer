@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -33,6 +35,7 @@ public class Player : MonoBehaviour
    #endregion
     
     #region Check Transforms
+    [SerializeField]
     private Transform groundCheck;
     #endregion
   
