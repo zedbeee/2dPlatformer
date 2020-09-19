@@ -82,6 +82,7 @@ public class Player : MonoBehaviour
        RB.velocity = workspace;
        CurrentVelocity = workspace;
    }
+
     public bool CheckTurning(){
         return isTurning;
     }

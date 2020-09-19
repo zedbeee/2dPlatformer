@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 189341298}
   - component: {fileID: 189341297}
   - component: {fileID: 189341296}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: main_lev_build_119
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -697,6 +697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4db85650ee93feb4282e2808670c53de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputHoldTime: 0.2
 --- !u!114 &520164129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1695,6 +1696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4db85650ee93feb4282e2808670c53de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputHoldTime: 0.2
 --- !u!1 &2127583580
 GameObject:
   m_ObjectHideFlags: 0
