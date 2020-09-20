@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
    public PlayerInAirState InAirState{get; private set;}
    public PlayerLandState LandState{get; private set;}
 
+
 [SerializeField]
    private PlayerData playerData;
 
