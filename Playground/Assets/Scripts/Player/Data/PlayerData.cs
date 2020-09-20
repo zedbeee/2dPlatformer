@@ -21,5 +21,8 @@ public class PlayerData : ScriptableObject
     [Header("Sprint State")]
     public float sprintVelocity = 15f;
 
+    [Header("Dive State")]
+    public float diveVelocity = -2f;
+
     public LayerMask whatIsGround;
 }

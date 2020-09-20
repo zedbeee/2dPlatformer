@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Linq.Expressions;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,6 +11,7 @@ public class PlayerInputHandler : MonoBehaviour
     public int NormInputY {get; private set;}
     public bool JumpInput{get; private set;}
     public bool SprintInput {get; private set;}
+    public bool DiveInput {get; private set;}
     [SerializeField]
     private float inputHoldTime = 0.2f;
     private float jumpInputStartTime;
@@ -44,8 +46,15 @@ public class PlayerInputHandler : MonoBehaviour
             SprintInput = true;
         }
          if (context.canceled){
-            JumpInput = false;
-            //Jump released
+            SprintInput = false;
+        }
+    }
+      public void onDiveInput(InputAction.CallbackContext context){
+         if (context.started){
+            DiveInput = true;
+        }
+         if (context.canceled){
+             DiveInput = false;
         }
     }
     public void UseSprintInput() => SprintInput = false;

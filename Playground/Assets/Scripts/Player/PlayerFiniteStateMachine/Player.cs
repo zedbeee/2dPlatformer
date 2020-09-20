@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
    public PlayerJumpState JumpState{get; private set;}
    public PlayerInAirState InAirState{get; private set;}
    public PlayerLandState LandState{get; private set;}
+   public PlayerDiveState DiveState{get; private set;}
 
 
 
@@ -54,6 +55,7 @@ public class Player : MonoBehaviour
        JumpState = new PlayerJumpState(this, StateMachine, playerData, "inAir");
        InAirState = new PlayerInAirState(this, StateMachine, playerData, "inAir");
        LandState = new PlayerLandState(this, StateMachine, playerData, "land");
+       DiveState = new PlayerDiveState(this, StateMachine, playerData, "dive");
 
 
    }

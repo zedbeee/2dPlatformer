@@ -7,6 +7,7 @@ public class PlayerInAirState : PlayerState
     private bool isGrounded;
     private int xInput;
     private bool jumpInput;
+    private bool diveInput;
    public PlayerInAirState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base (player, stateMachine, playerData, animBoolName)
     {
 
@@ -32,13 +33,18 @@ public class PlayerInAirState : PlayerState
         
         xInput = player.InputHandler.NormInputX;
         jumpInput = player.InputHandler.JumpInput;
+        diveInput = player.InputHandler.DiveInput;
 
         if (isGrounded && player.CurrentVelocity.y < 0.01f){
             stateMachine.ChangeState(player.LandState);
         }
+        else if (diveInput && !isGrounded){
+            stateMachine.ChangeState(player.DiveState);
+        }
         else if (jumpInput && player.JumpState.CanJump()){
             stateMachine.ChangeState(player.JumpState);
         }
+       
         else {
             player.CheckIfShouldFlip(xInput);
             player.SetVelocityX(playerData.movementVelocity * xInput);

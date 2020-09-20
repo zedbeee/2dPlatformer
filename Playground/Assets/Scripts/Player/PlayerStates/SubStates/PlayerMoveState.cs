@@ -9,7 +9,6 @@ public class PlayerMoveState : PlayerGroundedState
 
     public PlayerMoveState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base (player, stateMachine, playerData, animBoolName)
     {
-
     }
 
     public override void DoChecks()
@@ -19,9 +18,6 @@ public class PlayerMoveState : PlayerGroundedState
     public override void Enter()
     {
         base.Enter();
-        
-
-        
     }
     public override void Exit()
     {
@@ -31,10 +27,10 @@ public class PlayerMoveState : PlayerGroundedState
     {  
         base.LogicUpdate();
         SprintInput = player.InputHandler.SprintInput;
-        if (SprintInput) {
+        player.SetVelocityX(playerData.movementVelocity * xInput);
+        if (SprintInput){
             player.SetVelocityX(playerData.sprintVelocity * xInput);
         }
-        player.SetVelocityX(playerData.movementVelocity * xInput);
         if (xInput == 0f){           
             stateMachine.ChangeState(player.IdleState);
         }
