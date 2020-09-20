@@ -44,7 +44,7 @@ public class PlayerInputHandler : MonoBehaviour
             SprintInput = true;
         }
          if (context.canceled){
-            JumpInput = false;
+            SprintInput = false;
             //Jump released
         }
     }

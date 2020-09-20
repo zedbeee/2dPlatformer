@@ -19,7 +19,7 @@ public class PlayerData : ScriptableObject
     public float groundCheckRadius = 0.3f;
 
     [Header("Sprint State")]
-    public float sprintVelocity = 15f;
+    public float sprintVelocity = 1f;
 
     public LayerMask whatIsGround;
 }

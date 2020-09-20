@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   movementVelocity: 2
-  jumpVelocity: 5
+  jumpVelocity: 7
   amountOfJumps: 2
   turnVelocity: 1.5
   groundCheckRadius: 0.3
-  sprintVelocity: 40
+  sprintVelocity: 6
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
