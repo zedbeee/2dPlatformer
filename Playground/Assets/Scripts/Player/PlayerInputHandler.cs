@@ -47,6 +47,7 @@ public class PlayerInputHandler : MonoBehaviour
         }
          if (context.canceled){
             SprintInput = false;
+<<<<<<< HEAD
         }
     }
       public void onDiveInput(InputAction.CallbackContext context){
@@ -55,6 +56,9 @@ public class PlayerInputHandler : MonoBehaviour
         }
          if (context.canceled){
              DiveInput = false;
+=======
+            //Jump released
+>>>>>>> 6416849e5f54611875e304bcc09623f94a460026
         }
     }
     public void UseSprintInput() => SprintInput = false;

@@ -13,12 +13,19 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   movementVelocity: 2
+<<<<<<< HEAD
   jumpVelocity: 6
+=======
+  jumpVelocity: 7
+>>>>>>> 6416849e5f54611875e304bcc09623f94a460026
   amountOfJumps: 2
   turnVelocity: 1.5
   groundCheckRadius: 0.3
   sprintVelocity: 6
+<<<<<<< HEAD
   diveVelocity: -7
+=======
+>>>>>>> 6416849e5f54611875e304bcc09623f94a460026
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
