@@ -17,6 +17,8 @@ public class PlayerData : ScriptableObject
 
     [Header("Check Variables")]
     public float groundCheckRadius = 0.3f;
+    public float wallCheckDistance = 0.5f;
+    public LayerMask whatIsGround;
 
     [Header("Sprint State")]
     public float sprintVelocity = 1f;
@@ -24,5 +26,5 @@ public class PlayerData : ScriptableObject
     [Header("Dive State")]
     public float diveVelocity = -2f;
 
-    public LayerMask whatIsGround;
+    
 }

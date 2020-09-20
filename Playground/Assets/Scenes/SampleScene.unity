@@ -364,7 +364,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 520164126}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &468238893
 GameObject:
@@ -749,6 +749,7 @@ Transform:
   m_LocalPosition: {x: 1.036, y: -1.606, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
+  - {fileID: 679069357}
   - {fileID: 389044162}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -767,6 +768,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 723a54f993e800f4384d4cf46883014e, type: 2}
   groundCheck: {fileID: 389044162}
+  wallCheck: {fileID: 679069357}
 --- !u!114 &520164128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1038,6 +1040,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &679069356
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 679069357}
+  m_Layer: 0
+  m_Name: WallCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &679069357
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679069356}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 520164126}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &682189085
 GameObject:
   m_ObjectHideFlags: 0
@@ -2020,6 +2052,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 11e0a25c-1719-4bcd-8aec-4db448bc161e
     m_ActionName: Gameplay/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b2e6ace5-6b2f-43c6-bf8a-694dca2fef60
+    m_ActionName: Gameplay/Sprint[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 67b1b0a9-88ab-4b8d-917b-caf958dca1cf
+    m_ActionName: Gameplay/Dive[/Keyboard/leftCtrl]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Gameplay

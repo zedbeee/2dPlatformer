@@ -40,6 +40,8 @@ public class Player : MonoBehaviour
     #region Check Transforms
     [SerializeField]
     private Transform groundCheck;
+    [SerializeField]
+    private Transform wallCheck;
     #endregion
   
 
@@ -114,5 +116,8 @@ public class Player : MonoBehaviour
    }
    public bool CheckIfTouchingGround(){
        return Physics2D.OverlapCircle(groundCheck.position, playerData.groundCheckRadius, playerData.whatIsGround);
+   }
+   public bool CheckIfTouchingWall(){
+       return Physics2D.Raycast(wallCheck.position, Vector2.right * FacingDirection, playerData.wallCheckDistance, playerData.whatIsGround);
    }
 }
