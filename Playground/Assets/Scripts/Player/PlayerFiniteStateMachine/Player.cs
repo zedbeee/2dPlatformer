@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
    public PlayerLandState LandState{get; private set;}
 
 
+
 [SerializeField]
    private PlayerData playerData;
 
@@ -53,6 +54,7 @@ public class Player : MonoBehaviour
        JumpState = new PlayerJumpState(this, StateMachine, playerData, "inAir");
        InAirState = new PlayerInAirState(this, StateMachine, playerData, "inAir");
        LandState = new PlayerLandState(this, StateMachine, playerData, "land");
+
 
    }
 

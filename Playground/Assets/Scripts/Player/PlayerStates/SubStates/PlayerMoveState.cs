@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerMoveState : PlayerGroundedState
 {
+
+    private bool SprintInput;
+
     public PlayerMoveState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base (player, stateMachine, playerData, animBoolName)
     {
 
@@ -25,8 +28,12 @@ public class PlayerMoveState : PlayerGroundedState
         base.Exit();
     }
     public override void LogicUpdate()
-    {
+    {  
         base.LogicUpdate();
+        SprintInput = player.InputHandler.SprintInput;
+        if (SprintInput) {
+            player.SetVelocityX(playerData.sprintVelocity * xInput);
+        }
         player.SetVelocityX(playerData.movementVelocity * xInput);
         if (xInput == 0f){           
             stateMachine.ChangeState(player.IdleState);

@@ -17,7 +17,7 @@ MonoBehaviour:
   amountOfJumps: 2
   turnVelocity: 1.5
   groundCheckRadius: 0.3
-  sprintVelocity: 15
+  sprintVelocity: 40
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
