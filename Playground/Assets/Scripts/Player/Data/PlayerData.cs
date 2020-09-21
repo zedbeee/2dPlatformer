@@ -24,7 +24,7 @@ public class PlayerData : ScriptableObject
     public float sprintVelocity = 1f;
 
     [Header("Dive State")]
-    public float diveVelocity = -2f;
+    public float diveVelocity = -3f;
 
     
 }
