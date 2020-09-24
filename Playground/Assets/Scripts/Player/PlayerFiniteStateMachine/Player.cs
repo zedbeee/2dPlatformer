@@ -21,9 +21,9 @@ public class Player : MonoBehaviour
     public PlayerStartFallState StartFallState {get; private set;}
     public PlayerJumpSquatState JumpSquatState {get; private set;}
     public int RemainingJumps { get; set; }
-    public int NumberOfJumps = { get; private set;}
-[SerializeField]
-   private PlayerData playerData;
+    public int NumberOfJumps  { get; private set;}
+    [SerializeField]
+    private PlayerData playerData;
 
     #endregion
     

@@ -16,6 +16,7 @@ public class PlayerJumpState : PlayerInAirState
         base.Enter();
         player.SetVelocityY(playerData.jumpVelocity);
         player.RemainingJumps-=1;
+        player.InputHandler.UseJumpInput();
     }
 
     public override void LogicUpdate(){
