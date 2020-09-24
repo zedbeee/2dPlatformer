@@ -9,6 +9,7 @@ public class PlayerState
     protected PlayerData playerData;
     protected bool isAnimationFinished;
     protected bool isExitingState;
+    
     private string animBoolName;
     protected float startTime;
 
@@ -22,14 +23,15 @@ public class PlayerState
 
     public virtual void Enter() {
         DoChecks();
+        
         player.Anim.SetBool(animBoolName, true);
         startTime = Time.time;
-        Debug.Log(animBoolName);
+        Debug.Log("Stepping into " + animBoolName);
         isAnimationFinished = false;
         isExitingState = false;
     }
     public virtual void Exit() {
-        player.Anim.SetBool(animBoolName, false);
+        player.Anim.SetBool(animBoolName, false);        
         isExitingState = true;
     }
     public virtual void LogicUpdate(){}

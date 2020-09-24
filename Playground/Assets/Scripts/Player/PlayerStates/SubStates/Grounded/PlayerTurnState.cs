@@ -14,22 +14,17 @@ public class PlayerTurnState : PlayerGroundedState
     }
     public override void AnimationFinishTrigger(){
         base.AnimationFinishTrigger();
-        player.Anim.SetBool("turn", false);
         player.CheckIfShouldFlip(xInput);
-        
-
     }
     public override void Enter()
     {
         base.Enter(); 
-        player.SetTurning(true);         
-
-       
+                  
     }
     public override void Exit()
     {
-        base.Exit();
-        
+        base.Exit(); 
+            
     }
     public override void LogicUpdate()
     {

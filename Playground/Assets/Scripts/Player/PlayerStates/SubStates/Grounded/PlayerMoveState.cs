@@ -15,6 +15,8 @@ public class PlayerMoveState : PlayerGroundedState
     public override void Enter()
     {
         base.Enter();
+        player.CheckIfShouldFlip(xInput);
+
     }
     public override void Exit()
     {
@@ -28,10 +30,9 @@ public class PlayerMoveState : PlayerGroundedState
         if (xInput == 0f){           
             stateMachine.ChangeState(player.IdleState);
         }
-        if (xInput != player.CheckFacingDirection()){
+        else if (xInput != player.CheckFacingDirection()){
             stateMachine.ChangeState(player.TurnState);
-        }
-
+        } 
     }
     public override void PhysicsUpdate() 
     {

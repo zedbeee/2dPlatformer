@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class PlayerInAirState : PlayerState
 {
-    private bool isGrounded;
+    protected bool isGrounded;
     private int xInput;
     private bool jumpInput;
     private bool diveInput;
+    protected bool startedFall;
+    private int amountOfJumpsLeft;
    public PlayerInAirState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base (player, stateMachine, playerData, animBoolName)
     {
-
+        amountOfJumpsLeft = playerData.amountOfJumps;
     }
-       public override void DoChecks()
+    public override void DoChecks()
     {
         base.DoChecks();
         isGrounded = player.CheckIfTouchingGround();
@@ -20,6 +22,7 @@ public class PlayerInAirState : PlayerState
     public override void Enter()
     {
         base.Enter(); 
+        startedFall = false;
    
     }
     public override void Exit()
@@ -36,22 +39,19 @@ public class PlayerInAirState : PlayerState
         diveInput = player.InputHandler.DiveInput;
 
         if (isGrounded && player.CurrentVelocity.y < 0.01f){
+            ResetAmountOfJumpsLeft();
             stateMachine.ChangeState(player.LandState);
         }
         else if (diveInput && !isGrounded){
             stateMachine.ChangeState(player.DiveState);
         }
-        else if (jumpInput && player.JumpState.CanJump()){
-            stateMachine.ChangeState(player.JumpState);
-        }
-       
+        else if (jumpInput && CanJump()){
+            stateMachine.ChangeState(player.DoubleJumpState);            
+        } 
         else {
             player.CheckIfShouldFlip(xInput);
             player.SetVelocityX(playerData.movementVelocity * xInput);
             
-            player.Anim.SetFloat("yVelocity", player.CurrentVelocity.y);
-            player.Anim.SetFloat("xVelocity", Mathf.Abs(player.CurrentVelocity.x));
-
         }
         
     }
@@ -59,5 +59,18 @@ public class PlayerInAirState : PlayerState
     {
         base.PhysicsUpdate();
     }    
+    public bool CanJump(){
+         if (amountOfJumpsLeft > 0){
+             return true;
+         } else {
+             return false;
+         }
+     }
+    public int JumpCount() { return amountOfJumpsLeft;}
+    public void ResetAmountOfJumpsLeft() { 
+        amountOfJumpsLeft = playerData.amountOfJumps;
+        Debug.Log("Amount " + amountOfJumpsLeft + "Data " + playerData.amountOfJumps);
+    }
+    public void DecreaseAmountOfJumpsLeft() => amountOfJumpsLeft--;
 }
 

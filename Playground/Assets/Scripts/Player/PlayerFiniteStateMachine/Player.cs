@@ -7,16 +7,18 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     #region State Variables
-   public PlayerStateMachine StateMachine{get; private set;}
-
-   public PlayerIdleState IdleState{get; private set;}
-   public PlayerMoveState MoveState{get; private set;}
-   public PlayerTurnState TurnState{get; private set;}
-   public PlayerJumpState JumpState{get; private set;}
-   public PlayerInAirState InAirState{get; private set;}
-   public PlayerLandState LandState{get; private set;}
-   public PlayerDiveState DiveState{get; private set;}
-
+    public PlayerStateMachine StateMachine{get; private set;}
+    public PlayerIdleState IdleState{get; private set;}
+    public PlayerMoveState MoveState{get; private set;}
+    public PlayerTurnState TurnState{get; private set;}
+    public PlayerJumpState JumpState{get; private set;}
+    public PlayerInAirState InAirState{get; private set;}
+    public PlayerLandState LandState{get; private set;}
+    public PlayerDiveState DiveState{get; private set;}
+    public PlayerDoubleJumpState DoubleJumpState {get; private set;}
+    public PlayerEndFallState EndFallState {get; private set;}
+    public PlayerStartFallState StartFallState {get; private set;}
+    public PlayerJumpSquatState JumpSquatState {get; private set;}
 
 
 [SerializeField]
@@ -54,10 +56,15 @@ public class Player : MonoBehaviour
        IdleState = new PlayerIdleState(this, StateMachine, playerData, "idle" );
        MoveState = new PlayerMoveState(this, StateMachine, playerData, "move" );
        TurnState = new PlayerTurnState(this, StateMachine, playerData, "turn");
-       JumpState = new PlayerJumpState(this, StateMachine, playerData, "inAir");
+       JumpSquatState = new PlayerJumpSquatState(this,StateMachine, playerData, "jumpSquat");
+       JumpState = new PlayerJumpState(this, StateMachine, playerData, "jump");
        InAirState = new PlayerInAirState(this, StateMachine, playerData, "inAir");
        LandState = new PlayerLandState(this, StateMachine, playerData, "land");
        DiveState = new PlayerDiveState(this, StateMachine, playerData, "dive");
+       DoubleJumpState = new PlayerDoubleJumpState(this, StateMachine, playerData, "doubleJump");
+       EndFallState = new PlayerEndFallState(this, StateMachine, playerData, "endFall");
+       StartFallState = new PlayerStartFallState(this, StateMachine, playerData, "startFall");
+
 
 
    }
@@ -90,9 +97,7 @@ public class Player : MonoBehaviour
        CurrentVelocity = workspace;
    }
 
-    public bool CheckTurning(){
-        return isTurning;
-    }
+  
 
     public void SetTurning(bool a){
         isTurning = a;
@@ -109,7 +114,7 @@ public class Player : MonoBehaviour
 
     private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
 
-    private void AnimtionFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
+    private void AnimationFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
     private void Flip(){
        FacingDirection *= -1;
         transform.Rotate(0.0f, 180.0f, 0.0f);

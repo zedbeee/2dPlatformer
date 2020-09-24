@@ -7,6 +7,7 @@ public class PlayerGroundedState : PlayerState
     protected int xInput;
     private bool JumpInput;
     private bool isGrounded;
+    private bool isSquat;
     public PlayerGroundedState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base (player, stateMachine, playerData, animBoolName)
     {
 
@@ -20,7 +21,7 @@ public class PlayerGroundedState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        player.JumpState.ResetAmountOfJumpsLeft();
+    //    player.JumpState.ResetAmountOfJumpsLeft();
     }
     public override void Exit()
     {
@@ -33,11 +34,10 @@ public class PlayerGroundedState : PlayerState
         xInput = player.InputHandler.NormInputX;
         JumpInput = player.InputHandler.JumpInput;
 
-        if (JumpInput && player.JumpState.CanJump()){
-            //player.InputHandler.UseJumpInput();
-            stateMachine.ChangeState(player.JumpState);
+        if (JumpInput && stateMachine.CurrentState != player.JumpSquatState){
+              stateMachine.ChangeState(player.JumpSquatState);
         } else if (!isGrounded){
-            stateMachine.ChangeState(player.InAirState);
+            stateMachine.ChangeState(player.StartFallState);
         }
     }
     public override void PhysicsUpdate()

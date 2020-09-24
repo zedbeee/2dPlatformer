@@ -18,8 +18,9 @@ public class PlayerIdleState : PlayerGroundedState
         base.Enter();
         player.SetVelocityX(0f);
 
+
     }
-    public override void Exit()
+    public override void Exit() 
     {
         base.Exit();
     }
@@ -27,10 +28,9 @@ public class PlayerIdleState : PlayerGroundedState
     {
         base.LogicUpdate();
         if (xInput != player.CheckFacingDirection() && xInput != 0) {
-            player.SetTurning(true);
             stateMachine.ChangeState(player.TurnState);
         }
-        if (xInput != 0){           
+        else if (xInput != 0){           
             stateMachine.ChangeState(player.MoveState);
         }
     }
