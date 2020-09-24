@@ -32,7 +32,7 @@ public class PlayerInputHandler : MonoBehaviour
             jumpInputStartTime = Time.time;
         }
         if (context.performed){
-            JumpInput = true;
+            
             //Jump being held
         }
         if (context.canceled){

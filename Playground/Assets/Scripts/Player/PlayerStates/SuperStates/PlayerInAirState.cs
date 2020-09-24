@@ -4,30 +4,31 @@ using UnityEngine;
 
 public class PlayerInAirState : PlayerState
 {
-    private bool isGrounded;
+    protected bool isGrounded;
     private int xInput;
     private bool jumpInput;
     private bool diveInput;
-    private float xVelocity;
-    private int airTimeFrames;
-   public PlayerInAirState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base (player, stateMachine, playerData, animBoolName)
+    protected bool startedFall;
+    private int amountOfJumpsLeft;
+    public PlayerInAirState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
-        ResetXVelocity();
+        amountOfJumpsLeft = playerData.amountOfJumps;
     }
-       public override void DoChecks()
+    public override void DoChecks()
     {
         base.DoChecks();
         isGrounded = player.CheckIfTouchingGround();
     }
     public override void Enter()
     {
-        base.Enter(); 
-   
+        base.Enter();
+        startedFall = false;
+
     }
     public override void Exit()
     {
         base.Exit();
-        
+
     }
     private void ResetXVelocity()
     {
@@ -46,34 +47,38 @@ public class PlayerInAirState : PlayerState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        
+
         xInput = player.InputHandler.NormInputX;
         jumpInput = player.InputHandler.JumpInput;
         diveInput = player.InputHandler.DiveInput;
 
-        if (isGrounded && player.CurrentVelocity.y < 0.01f){
+        if (isGrounded && player.CurrentVelocity.y < 0.01f)
+        {
+            player.RemainingJumps = player.NumberOfJumps;
             stateMachine.ChangeState(player.LandState);
             ResetXVelocity();
         }
-        else if (diveInput && !isGrounded){
+        else if (diveInput && !isGrounded)
+        {
             stateMachine.ChangeState(player.DiveState);
         }
-        else if (jumpInput && player.JumpState.CanJump()){
-            stateMachine.ChangeState(player.JumpState);
+        else if (jumpInput && CanJump())
+        {
+            stateMachine.ChangeState(player.DoubleJumpState);
+        }
+        else
+        {
             player.CheckIfShouldFlip(xInput);
+            player.SetVelocityX(playerData.movementVelocity * xInput);
         }
-       
-        else {
-            player.SetVelocityX(GetXVelocity());
-            player.Anim.SetFloat("yVelocity", player.CurrentVelocity.y);
-            player.Anim.SetFloat("xVelocity", Mathf.Abs(GetXVelocity()));
 
-        }
-        
     }
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-    }    
+    }
+    public bool CanJump()
+    {
+        return player.RemainingJumps > 0;
+    }
 }
-
