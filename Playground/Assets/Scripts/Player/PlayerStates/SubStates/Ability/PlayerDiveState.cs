@@ -23,6 +23,7 @@ public class PlayerDiveState : PlayerAbilityState
         base.LogicUpdate();
         if (isGrounded){
             isAbilityDone = true;
+            stateMachine.ChangeState(player.LandState);
         }
         player.Anim.SetFloat("yVelocity", player.CurrentVelocity.y);
         player.Anim.SetFloat("xVelocity", Mathf.Abs(playerData.movementVelocity));
