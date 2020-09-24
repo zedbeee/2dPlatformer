@@ -15,11 +15,7 @@ public class PlayerJumpState : PlayerInAirState
     {
         base.Enter();
         player.SetVelocityY(playerData.jumpVelocity);
-        Debug.Log("Before " + player.InAirState.JumpCount());
-        player.InAirState.DecreaseAmountOfJumpsLeft();
-        Debug.Log("After "+player.InAirState.JumpCount());
-        
-        
+        player.RemainingJumps-=1;
     }
 
     public override void LogicUpdate(){
@@ -29,8 +25,6 @@ public class PlayerJumpState : PlayerInAirState
         if (player.CurrentVelocity.y < 0.01f) {
             stateMachine.ChangeState(player.StartFallState);
         }
-        
-  
     }
     public override void PhysicsUpdate(){
         base.PhysicsUpdate();

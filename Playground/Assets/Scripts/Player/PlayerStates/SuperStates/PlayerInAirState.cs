@@ -10,7 +10,7 @@ public class PlayerInAirState : PlayerState
     private bool diveInput;
     protected bool startedFall;
     private int amountOfJumpsLeft;
-   public PlayerInAirState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base (player, stateMachine, playerData, animBoolName)
+    public PlayerInAirState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
         amountOfJumpsLeft = playerData.amountOfJumps;
     }
@@ -21,56 +21,49 @@ public class PlayerInAirState : PlayerState
     }
     public override void Enter()
     {
-        base.Enter(); 
+        base.Enter();
         startedFall = false;
-   
+
     }
     public override void Exit()
     {
         base.Exit();
-        
+
     }
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        
+
         xInput = player.InputHandler.NormInputX;
         jumpInput = player.InputHandler.JumpInput;
         diveInput = player.InputHandler.DiveInput;
 
-        if (isGrounded && player.CurrentVelocity.y < 0.01f){
-            ResetAmountOfJumpsLeft();
+        if (isGrounded && player.CurrentVelocity.y < 0.01f)
+        {
+            player.RemainingJumps = player.NumberOfJumps;
             stateMachine.ChangeState(player.LandState);
         }
-        else if (diveInput && !isGrounded){
+        else if (diveInput && !isGrounded)
+        {
             stateMachine.ChangeState(player.DiveState);
         }
-        else if (jumpInput && CanJump()){
-            stateMachine.ChangeState(player.DoubleJumpState);            
-        } 
-        else {
+        else if (jumpInput && CanJump())
+        {
+            stateMachine.ChangeState(player.DoubleJumpState);
+        }
+        else
+        {
             player.CheckIfShouldFlip(xInput);
             player.SetVelocityX(playerData.movementVelocity * xInput);
-            
         }
-        
+
     }
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-    }    
-    public bool CanJump(){
-         if (amountOfJumpsLeft > 0){
-             return true;
-         } else {
-             return false;
-         }
-     }
-    public int JumpCount() { return amountOfJumpsLeft;}
-    public void ResetAmountOfJumpsLeft() { 
-        amountOfJumpsLeft = playerData.amountOfJumps;
-        Debug.Log("Amount " + amountOfJumpsLeft + "Data " + playerData.amountOfJumps);
     }
-    public void DecreaseAmountOfJumpsLeft() => amountOfJumpsLeft--;
+    public bool CanJump()
+    {
+        return player.RemainingJumps > 0;
+    }
 }
-
