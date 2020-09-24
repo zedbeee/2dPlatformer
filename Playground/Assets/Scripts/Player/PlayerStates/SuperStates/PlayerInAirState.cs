@@ -67,10 +67,10 @@ public class PlayerInAirState : PlayerState
         else if (jumpInput && CanJump())
         {
             stateMachine.ChangeState(player.DoubleJumpState);
+            player.CheckIfShouldFlip(xInput);
         }
         else
         {
-            player.CheckIfShouldFlip(xInput);
             player.SetVelocityX(playerData.movementVelocity * xInput);
         }
 

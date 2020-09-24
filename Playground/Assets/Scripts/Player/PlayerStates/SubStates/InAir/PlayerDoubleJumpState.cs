@@ -17,7 +17,6 @@ public class PlayerDoubleJumpState : PlayerInAirState
         base.Enter();
         player.SetVelocityY(playerData.jumpVelocity);
         player.RemainingJumps -= 1;
-        
     }
     public override void Exit()
     {
