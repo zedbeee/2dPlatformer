@@ -30,6 +30,20 @@ public class PlayerInAirState : PlayerState
         base.Exit();
 
     }
+    private void ResetXVelocity()
+    {
+        xVelocity = player.CurrentVelocity.x;
+        airTimeFrames = 0;
+    }
+    private float GetXVelocity()
+    {
+        //Check if it's the first frame that you are in the air
+        if(airTimeFrames == 0)
+                if (player.InputHandler.SprintInput)
+                    xVelocity += playerData.sprintVelocity;
+        airTimeFrames++;
+        return xInput * playerData.movementVelocity;
+    }
     public override void LogicUpdate()
     {
         base.LogicUpdate();
@@ -42,6 +56,7 @@ public class PlayerInAirState : PlayerState
         {
             player.RemainingJumps = player.NumberOfJumps;
             stateMachine.ChangeState(player.LandState);
+            ResetXVelocity();
         }
         else if (diveInput && !isGrounded)
         {
