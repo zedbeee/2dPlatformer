@@ -10,6 +10,8 @@ public class PlayerInAirState : PlayerState
     private bool diveInput;
     protected bool startedFall;
     private int amountOfJumpsLeft;
+    private float xVelocity;
+    private int airTimeFrames;
     public PlayerInAirState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
         amountOfJumpsLeft = playerData.amountOfJumps;
