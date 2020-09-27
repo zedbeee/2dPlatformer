@@ -1298,6 +1298,7 @@ GameObject:
   - component: {fileID: 520164128}
   - component: {fileID: 520164127}
   - component: {fileID: 520164129}
+  - component: {fileID: 520164130}
   m_Layer: 0
   m_Name: Shanoa
   m_TagString: Untagged
@@ -1312,7 +1313,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 520164121}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1579,6 +1580,22 @@ MonoBehaviour:
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!70 &520164130
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520164121}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00087073445, y: 0.02068606}
+  m_Size: {x: 0.1605559, y: 0.46674186}
+  m_Direction: 0
 --- !u!1 &551720722
 GameObject:
   m_ObjectHideFlags: 0
