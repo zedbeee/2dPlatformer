@@ -16,7 +16,6 @@ public class PlayerMoveState : PlayerGroundedState
     {
         base.Enter();
         player.CheckIfShouldFlip(xInput);
-
     }
     public override void Exit()
     {
