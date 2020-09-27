@@ -29,15 +29,16 @@ public class PlayerTurnState : PlayerGroundedState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        player.SetVelocityX(playerData.turnVelocity * xInput);
-
-        if (xInput == 0f){
-            stateMachine.ChangeState(player.IdleState);
-        } 
-        if (isAnimationFinished){
-            stateMachine.ChangeState(player.MoveState);
-        }
         
+        if (!isExitingState){
+            player.SetVelocityX(playerData.turnVelocity * xInput);
+            if (xInput == 0f){
+            stateMachine.ChangeState(player.IdleState);
+            } 
+            if (isAnimationFinished){
+            stateMachine.ChangeState(player.MoveState);
+            }
+        }
     }
     public override void PhysicsUpdate()
     {
