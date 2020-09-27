@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public PlayerIdleState IdleState{get; private set;}
     public PlayerMoveState MoveState{get; private set;}
     public PlayerTurnState TurnState{get; private set;}
+    public PlayerCrouchState CrouchState{get; private set;}
     public PlayerJumpState JumpState{get; private set;}
     public PlayerInAirState InAirState{get; private set;}
     public PlayerLandState LandState{get; private set;}
@@ -72,6 +73,7 @@ public class Player : MonoBehaviour
        EndFallState = new PlayerEndFallState(this, StateMachine, playerData, "endFall");
        StartFallState = new PlayerStartFallState(this, StateMachine, playerData, "startFall");
        AbilityOneState = new PlayerAbilityOneState(this, StateMachine, playerData, "abilityOne");
+       CrouchState = new PlayerCrouchState(this, StateMachine, playerData, "crouch");
 
 
 

@@ -36,6 +36,9 @@ public class PlayerMoveState : PlayerGroundedState
             else if (xInput != player.CheckFacingDirection()){
             stateMachine.ChangeState(player.TurnState);
             } 
+            else if (yInput == -1){
+            stateMachine.ChangeState(player.CrouchState);
+            }
         }
     }
     public override void PhysicsUpdate() 

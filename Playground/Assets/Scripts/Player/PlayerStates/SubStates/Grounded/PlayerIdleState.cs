@@ -34,6 +34,9 @@ public class PlayerIdleState : PlayerGroundedState
             else if (xInput != 0){           
             stateMachine.ChangeState(player.MoveState);
             }
+            else if (yInput == -1){
+            stateMachine.ChangeState(player.CrouchState);
+            }
         }
     }
     public override void PhysicsUpdate()
