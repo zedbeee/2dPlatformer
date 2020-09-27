@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public PlayerIdleState IdleState{get; private set;}
     public PlayerMoveState MoveState{get; private set;}
     public PlayerTurnState TurnState{get; private set;}
+    public PlayerCrouchState CrouchState{get; private set;}
     public PlayerJumpState JumpState{get; private set;}
     public PlayerInAirState InAirState{get; private set;}
     public PlayerLandState LandState{get; private set;}
@@ -20,8 +21,8 @@ public class Player : MonoBehaviour
     public PlayerEndFallState EndFallState {get; private set;}
     public PlayerStartFallState StartFallState {get; private set;}
     public PlayerJumpSquatState JumpSquatState {get; private set;}
-    public int RemainingJumps { get; set; }
-    public int NumberOfJumps  { get; private set;}
+    public PlayerAbilityOneState AbilityOneState {get; private set;}
+
     [SerializeField]
     private PlayerData playerData;
 
@@ -31,6 +32,10 @@ public class Player : MonoBehaviour
    public Animator Anim {get; private set;}
    public PlayerInputHandler InputHandler {get; private set;}
    public Rigidbody2D RB{get; private set;}
+   [SerializeField]
+   public Transform firePointTall;
+   [SerializeField]
+   public GameObject fireBallPrefab; 
    #endregion
 
     #region Other Variables
@@ -38,6 +43,8 @@ public class Player : MonoBehaviour
    public Vector2 CurrentVelocity {get; private set;}
    public int FacingDirection {get; private set;}
    public bool isTurning {get; private set;}
+    public int RemainingJumps { get; set; }
+    public int NumberOfJumps  { get; private set;}
    #endregion
     
     #region Check Transforms
@@ -47,7 +54,7 @@ public class Player : MonoBehaviour
     private Transform wallCheck;
     #endregion
   
-
+    
 
    private void Awake() {
        //Awake handles one time instatiation of the state machine and state components
@@ -65,6 +72,8 @@ public class Player : MonoBehaviour
        DoubleJumpState = new PlayerDoubleJumpState(this, StateMachine, playerData, "doubleJump");
        EndFallState = new PlayerEndFallState(this, StateMachine, playerData, "endFall");
        StartFallState = new PlayerStartFallState(this, StateMachine, playerData, "startFall");
+       AbilityOneState = new PlayerAbilityOneState(this, StateMachine, playerData, "abilityOne");
+       CrouchState = new PlayerCrouchState(this, StateMachine, playerData, "crouch");
 
 
 
@@ -78,6 +87,7 @@ public class Player : MonoBehaviour
        RemainingJumps = 2;
        NumberOfJumps = 2;
        StateMachine.Initialize(IdleState);
+       
    }
 
    private void Update() {
@@ -100,7 +110,9 @@ public class Player : MonoBehaviour
        CurrentVelocity = workspace;
    }
 
-  
+    public void ShootFireball(){
+        Instantiate(fireBallPrefab, firePointTall.position, firePointTall.rotation);
+    }
 
     public void SetTurning(bool a){
         isTurning = a;

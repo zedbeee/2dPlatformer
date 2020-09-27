@@ -26,7 +26,7 @@ public class PlayerDiveState : PlayerAbilityState
             stateMachine.ChangeState(player.LandState);
         }
         player.Anim.SetFloat("yVelocity", player.CurrentVelocity.y);
-        player.Anim.SetFloat("xVelocity", Mathf.Abs(playerData.movementVelocity));
+        player.Anim.SetFloat("xVelocity", Mathf.Abs(player.CurrentVelocity.x));
 
     }
     public override void PhysicsUpdate(){

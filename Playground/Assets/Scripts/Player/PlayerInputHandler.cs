@@ -12,6 +12,7 @@ public class PlayerInputHandler : MonoBehaviour
     public bool JumpInput{get; private set;}
     public bool SprintInput {get; private set;}
     public bool DiveInput {get; private set;}
+    public bool AbilityOneInput {get; private set;} 
     [SerializeField]
     private float inputHoldTime = 0.2f;
     private float jumpInputStartTime;
@@ -54,11 +55,20 @@ public class PlayerInputHandler : MonoBehaviour
             DiveInput = true;
         }
          if (context.canceled){
-             DiveInput = false;
+            DiveInput = false;
+        }
+    }
+
+    public void onAbilityOneInput(InputAction.CallbackContext context){
+        if (context.started){
+            AbilityOneInput = true;
+        }
+         if (context.canceled){
+            AbilityOneInput = false;
         }
     }
     public void UseSprintInput() => SprintInput = false;
-
+    public void UseAbilityOneInput() => AbilityOneInput = false;
     public void UseJumpInput() => JumpInput = false;
     private void CheckJumpInputHoldTime(){
         if (Time.time >= jumpInputStartTime + inputHoldTime){

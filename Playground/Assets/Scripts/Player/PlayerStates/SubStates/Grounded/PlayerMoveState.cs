@@ -24,14 +24,21 @@ public class PlayerMoveState : PlayerGroundedState
     public override void LogicUpdate()
     {  
         base.LogicUpdate();
-        float SprintOffset = player.InputHandler.SprintInput ? playerData.sprintVelocity : 0;
-        player.SetVelocityX((playerData.movementVelocity + SprintOffset) * xInput);
-        if (xInput == 0f){           
+        
+        
+        if (!isExitingState) {
+            float SprintOffset = player.InputHandler.SprintInput ? playerData.sprintVelocity : 0;
+            player.SetVelocityX((playerData.movementVelocity + SprintOffset) * xInput);
+            if (xInput == 0f){           
             stateMachine.ChangeState(player.IdleState);
-        }
-        else if (xInput != player.CheckFacingDirection()){
+            }
+            else if (xInput != player.CheckFacingDirection()){
             stateMachine.ChangeState(player.TurnState);
-        } 
+            } 
+            else if (yInput == -1){
+            stateMachine.ChangeState(player.CrouchState);
+            }
+        }
     }
     public override void PhysicsUpdate() 
     {

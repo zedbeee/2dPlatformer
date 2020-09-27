@@ -32,7 +32,7 @@ public class PlayerAbilityState : PlayerState
                 stateMachine.ChangeState(player.IdleState);
             }
             else{
-                stateMachine.ChangeState(player.InAirState);
+                stateMachine.ChangeState(player.StartFallState);
             }
         }
 
