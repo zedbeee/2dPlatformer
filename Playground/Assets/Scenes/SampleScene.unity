@@ -1608,12 +1608,12 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 520164121}
   m_Enabled: 0
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 157b44ba685b80743a0f166013ee32e6, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00087073445, y: 0.02068606}
-  m_Size: {x: 0.1605559, y: 0.46674186}
+  m_Offset: {x: 0.0048334002, y: 0.02068606}
+  m_Size: {x: 0.12885457, y: 0.46674186}
   m_Direction: 0
 --- !u!1 &551720722
 GameObject:
@@ -8327,7 +8327,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904200125}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.232, y: 0.097, z: 0}
+  m_LocalPosition: {x: 0.176, y: 0.114, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 520164126}
@@ -8426,6 +8426,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5584014083016926809, guid: 74b35adbd82398e438b92490ee234447, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5584014083016926811, guid: 74b35adbd82398e438b92490ee234447, type: 3}
       propertyPath: m_Name
       value: Shanoa
@@ -8482,6 +8486,10 @@ PrefabInstance:
       propertyPath: firePointTall
       value: 
       objectReference: {fileID: 1904200126}
+    - target: {fileID: 5584014083016926813, guid: 74b35adbd82398e438b92490ee234447, type: 3}
+      propertyPath: firePointShort
+      value: 
+      objectReference: {fileID: 223515746}
     - target: {fileID: 5584014083016926819, guid: 74b35adbd82398e438b92490ee234447, type: 3}
       propertyPath: m_ActionEvents.Array.size
       value: 5
