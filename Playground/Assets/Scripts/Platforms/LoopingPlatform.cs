@@ -13,7 +13,8 @@ public class LoopingPlatform : MonoBehaviour
     void Start()
     {
         target = 0;
-        transform.position = positions[0].position;
+        if (positions.Length > 0)
+            transform.position = positions[0].position;
         GetNext();
     }
 

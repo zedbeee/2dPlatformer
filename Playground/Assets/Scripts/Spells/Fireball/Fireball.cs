@@ -12,10 +12,11 @@ public class Fireball : MonoBehaviour
         rb.velocity = transform.right * speed;
     }
 
-    void OnTriggerEnter2D(Collider2D hitinfo){
-        //check if hitinfo touches a enemy
-        //else destroy
-        Destroy(gameObject); 
+    private void OnParticleCollision(GameObject other)
+    {
+        if (other.tag == "Enemy")
+            other.GetComponent<Enemy>().take_damage(1);
+        Destroy(gameObject);
     }
     private void OnBecameInvisible() {
         Destroy(gameObject);    
