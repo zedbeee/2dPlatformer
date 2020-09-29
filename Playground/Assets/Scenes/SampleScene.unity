@@ -386,6 +386,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &223515745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 223515746}
+  m_Layer: 0
+  m_Name: FirePointShort
+  m_TagString: Untagged
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &223515746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223515745}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.196, y: -0.06, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 520164126}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &248862039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1343,32 +1373,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5584014083016926811, guid: 74b35adbd82398e438b92490ee234447, type: 3}
   m_PrefabInstance: {fileID: 5584014082496902466}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &520164122
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 520164121}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 157b44ba685b80743a0f166013ee32e6, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.008462012, y: 0.015715241}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
-    newSize: {x: 0.64, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.16612738, y: 0.44416487}
-  m_EdgeRadius: 0
 --- !u!114 &520164125 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5584014083016926818, guid: 74b35adbd82398e438b92490ee234447, type: 3}
@@ -1394,12 +1398,12 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 520164121}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 157b44ba685b80743a0f166013ee32e6, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00087073445, y: 0.02068606}
-  m_Size: {x: 0.1605559, y: 0.46674186}
+  m_Offset: {x: 0.0048334002, y: 0.02068606}
+  m_Size: {x: 0.12885457, y: 0.46674186}
   m_Direction: 0
 --- !u!1 &551720722
 GameObject:
@@ -7929,7 +7933,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904200125}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.232, y: 0.097, z: 0}
+  m_LocalPosition: {x: 0.176, y: 0.114, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 520164126}
@@ -8028,6 +8032,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5584014083016926809, guid: 74b35adbd82398e438b92490ee234447, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5584014083016926811, guid: 74b35adbd82398e438b92490ee234447, type: 3}
       propertyPath: m_Name
       value: Shanoa
@@ -8084,6 +8092,10 @@ PrefabInstance:
       propertyPath: firePointTall
       value: 
       objectReference: {fileID: 1904200126}
+    - target: {fileID: 5584014083016926813, guid: 74b35adbd82398e438b92490ee234447, type: 3}
+      propertyPath: firePointShort
+      value: 
+      objectReference: {fileID: 223515746}
     - target: {fileID: 5584014083016926819, guid: 74b35adbd82398e438b92490ee234447, type: 3}
       propertyPath: m_ActionEvents.Array.size
       value: 5

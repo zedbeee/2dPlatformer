@@ -40,7 +40,9 @@ public class PlayerGroundedState : PlayerState
 
         if (JumpInput && stateMachine.CurrentState != player.JumpSquatState){
             stateMachine.ChangeState(player.JumpSquatState);
-        } else if (AbilityOneInput){
+        } else if (AbilityOneInput && stateMachine.CurrentState == player.CrouchState){
+            stateMachine.ChangeState(player.AbilityCrouchOneState);
+        } else if (AbilityOneInput) {
             stateMachine.ChangeState(player.AbilityOneState);
         } else if (!isGrounded){
             stateMachine.ChangeState(player.StartFallState);

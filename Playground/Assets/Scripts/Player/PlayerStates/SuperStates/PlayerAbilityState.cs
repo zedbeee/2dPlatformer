@@ -6,6 +6,8 @@ public class PlayerAbilityState : PlayerState
 {
     protected bool isAbilityDone;
     protected bool isGrounded;
+    protected int xInput;
+    protected int yInput; 
     public PlayerAbilityState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base (player, stateMachine, playerData, animBoolName)
     {
 
@@ -27,9 +29,16 @@ public class PlayerAbilityState : PlayerState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        xInput = player.InputHandler.NormInputX;
+        yInput = player.InputHandler.NormInputY;
         if (isAbilityDone){
             if (isGrounded && player.CurrentVelocity.y < 0.01f){
-                stateMachine.ChangeState(player.IdleState);
+                if (yInput == -1){
+                    stateMachine.ChangeState(player.CrouchState);
+                }
+                else {
+                    stateMachine.ChangeState(player.IdleState);
+                    }
             }
             else{
                 stateMachine.ChangeState(player.StartFallState);

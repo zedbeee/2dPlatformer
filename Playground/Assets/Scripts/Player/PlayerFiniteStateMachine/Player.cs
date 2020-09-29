@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     public PlayerStartFallState StartFallState {get; private set;}
     public PlayerJumpSquatState JumpSquatState {get; private set;}
     public PlayerAbilityOneState AbilityOneState {get; private set;}
+    public PlayerAbilityCrouchOneState AbilityCrouchOneState {get; private set;}
+
 
     [SerializeField]
     private PlayerData playerData;
@@ -34,6 +36,8 @@ public class Player : MonoBehaviour
    public Rigidbody2D RB{get; private set;}
    [SerializeField]
    public Transform firePointTall;
+    [SerializeField]
+   public Transform firePointShort;
    [SerializeField]
    public GameObject fireBallPrefab; 
    #endregion
@@ -43,6 +47,7 @@ public class Player : MonoBehaviour
    public Vector2 CurrentVelocity {get; private set;}
    public int FacingDirection {get; private set;}
    public bool isTurning {get; private set;}
+   public bool isCrouching {get; private set;}
     public int RemainingJumps { get; set; }
     public int NumberOfJumps  { get; private set;}
    #endregion
@@ -74,7 +79,7 @@ public class Player : MonoBehaviour
        StartFallState = new PlayerStartFallState(this, StateMachine, playerData, "startFall");
        AbilityOneState = new PlayerAbilityOneState(this, StateMachine, playerData, "abilityOne");
        CrouchState = new PlayerCrouchState(this, StateMachine, playerData, "crouch");
-
+       AbilityCrouchOneState = new PlayerAbilityCrouchOneState(this, StateMachine, playerData, "abilityCrouchOne");
 
 
    }
@@ -113,11 +118,19 @@ public class Player : MonoBehaviour
     public void ShootFireball(){
         Instantiate(fireBallPrefab, firePointTall.position, firePointTall.rotation);
     }
+    public void ShootFireballLow(){
+        Instantiate(fireBallPrefab, firePointShort.position, firePointShort.rotation);
+    }
 
     public void SetTurning(bool a){
         isTurning = a;
     }
-
+    public bool CheckIfCrouching(){
+        return isCrouching;
+    }
+    public void SetCrouching(bool a){
+        isCrouching = a;
+    }
     public int  CheckFacingDirection(){
         return FacingDirection;
     }
