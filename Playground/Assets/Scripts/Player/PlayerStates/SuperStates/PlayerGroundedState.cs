@@ -37,6 +37,7 @@ public class PlayerGroundedState : PlayerState
         yInput = player.InputHandler.NormInputY;
         JumpInput = player.InputHandler.JumpInput;
         AbilityOneInput = player.InputHandler.AbilityOneInput;
+        player.RemainingJumps = player.NumberOfJumps;
 
         if (JumpInput && stateMachine.CurrentState != player.JumpSquatState){
             stateMachine.ChangeState(player.JumpSquatState);

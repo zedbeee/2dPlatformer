@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     public PlayerJumpSquatState JumpSquatState {get; private set;}
     public PlayerAbilityOneState AbilityOneState {get; private set;}
     public PlayerAbilityCrouchOneState AbilityCrouchOneState {get; private set;}
+    public PlayerAbilityJumpOneState AbilityJumpOneState {get; private set;}
 
 
     [SerializeField]
@@ -39,6 +40,8 @@ public class Player : MonoBehaviour
    public Transform firePointTall;
     [SerializeField]
    public Transform firePointShort;
+[SerializeField]
+   public Transform firePointJump;
    [SerializeField]
    public GameObject fireBallPrefab; 
    #endregion
@@ -81,7 +84,7 @@ public class Player : MonoBehaviour
        AbilityOneState = new PlayerAbilityOneState(this, StateMachine, playerData, "abilityOne");
        CrouchState = new PlayerCrouchState(this, StateMachine, playerData, "crouch");
        AbilityCrouchOneState = new PlayerAbilityCrouchOneState(this, StateMachine, playerData, "abilityCrouchOne");
-
+       AbilityJumpOneState = new PlayerAbilityJumpOneState(this, StateMachine, playerData, "abilityJumpOne");
 
    }
 
@@ -115,6 +118,7 @@ public class Player : MonoBehaviour
        RB.velocity = workspace;
        CurrentVelocity = workspace;
    }
+    #region SpellMethods
 
     public void ShootFireball(){
         Instantiate(fireBallPrefab, firePointTall.position, firePointTall.rotation);
@@ -122,6 +126,11 @@ public class Player : MonoBehaviour
     public void ShootFireballLow(){
         Instantiate(fireBallPrefab, firePointShort.position, firePointShort.rotation);
     }
+    public void ShootFireBallJump(){
+         Instantiate(fireBallPrefab, firePointJump.position, firePointJump.rotation);
+    }
+
+    #endregion
 
     public void SetTurning(bool a){
         isTurning = a;

@@ -12,6 +12,8 @@ public class PlayerInAirState : PlayerState
     private int amountOfJumpsLeft;
     private float xVelocity;
     private int airTimeFrames;
+    private bool AbilityOneInput;
+
     public PlayerInAirState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
         amountOfJumpsLeft = playerData.amountOfJumps;
@@ -53,6 +55,8 @@ public class PlayerInAirState : PlayerState
         xInput = player.InputHandler.NormInputX;
         jumpInput = player.InputHandler.JumpInput;
         diveInput = player.InputHandler.DiveInput;
+        AbilityOneInput = player.InputHandler.AbilityOneInput;
+
 
         if (isGrounded && player.CurrentVelocity.y < 0.01f)
         {
@@ -63,6 +67,9 @@ public class PlayerInAirState : PlayerState
         else if (diveInput && !isGrounded)
         {
             stateMachine.ChangeState(player.DiveState);
+        }
+        else if (AbilityOneInput){
+            stateMachine.ChangeState(player.AbilityJumpOneState);
         }
         else if (jumpInput && CanJump())
         {
