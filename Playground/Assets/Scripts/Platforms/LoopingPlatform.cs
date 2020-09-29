@@ -13,28 +13,27 @@ public class LoopingPlatform : MonoBehaviour
     void Start()
     {
         target = 0;
+        transform.position = positions[0].position;
+        GetNext();
     }
 
     
     void FixedUpdate()
     {
-        //if (positions.Length > 0)
-        //    Move();
+        if (positions.Length > 0)
+            Move();
     }
 
-    //private void Move()
-    //{
-    //    if (transform.position.x == positions[target].x && transform.position.y == positions[target].y)
-    //        Debug.Log("We made it!");
+    private void Move()
+    {
+        if (transform.position == positions[target].position)
+            GetNext();
+        else
+            transform.position = Vector3.MoveTowards(transform.position, positions[target].position, speed * Time.deltaTime);
+    }
 
-    //    else
-    //        transform.position = Vector3.MoveTowards(transform.position, positions[target], speed * Time.deltaTime);
-    //}
-
-    //private int GetNext()
-    //{
-    //    int i = target == positions.Length - 1 ? 0 : target + 1;
-    //    Debug.Log("Next is " + i);
-    //    return i;
-    //}
+    private void GetNext()
+    {
+        target = target == positions.Length - 1 ? 0 : target + 1;
+    }
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   movementVelocity: 2
-  jumpVelocity: 9
+  jumpVelocity: 10
   amountOfJumps: 2
   turnVelocity: 1.5
   groundCheckRadius: 0.3
