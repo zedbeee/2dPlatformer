@@ -2417,6 +2417,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &993184651
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 993184652}
+  m_Layer: 0
+  m_Name: FirePointDive
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &993184652
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993184651}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.18, y: -0.242, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 520164126}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1012912532
 GameObject:
   m_ObjectHideFlags: 0
@@ -7900,7 +7930,7 @@ GameObject:
   - component: {fileID: 1535514721}
   - component: {fileID: 1535514720}
   - component: {fileID: 1535514722}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Point Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7984,7 +8014,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1704535743}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FirePointJump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8126,7 +8156,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1810707533}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FirePointShort
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8374,7 +8404,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1904200126}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FirePointTall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8484,6 +8514,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5584014082885935747, guid: 74b35adbd82398e438b92490ee234447, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5584014083016926808, guid: 74b35adbd82398e438b92490ee234447, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -8492,17 +8526,29 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5584014083016926809, guid: 74b35adbd82398e438b92490ee234447, type: 3}
+      propertyPath: m_GravityScale
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5584014083016926811, guid: 74b35adbd82398e438b92490ee234447, type: 3}
       propertyPath: m_Name
       value: Shanoa
       objectReference: {fileID: 0}
+    - target: {fileID: 5584014083016926811, guid: 74b35adbd82398e438b92490ee234447, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584014083016926811, guid: 74b35adbd82398e438b92490ee234447, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5584014083016926812, guid: 74b35adbd82398e438b92490ee234447, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.057
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 5584014083016926812, guid: 74b35adbd82398e438b92490ee234447, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.52
+      value: -1.071
       objectReference: {fileID: 0}
     - target: {fileID: 5584014083016926812, guid: 74b35adbd82398e438b92490ee234447, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8541,6 +8587,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5584014083016926813, guid: 74b35adbd82398e438b92490ee234447, type: 3}
+      propertyPath: fireDivePrefab.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584014083016926813, guid: 74b35adbd82398e438b92490ee234447, type: 3}
       propertyPath: fireBallPrefab
       value: 
       objectReference: {fileID: 3509386887326774919, guid: eafcf2317598b754d8fd21e293e3d3bf, type: 3}
@@ -8556,6 +8606,26 @@ PrefabInstance:
       propertyPath: firePointJump
       value: 
       objectReference: {fileID: 1704535743}
+    - target: {fileID: 5584014083016926813, guid: 74b35adbd82398e438b92490ee234447, type: 3}
+      propertyPath: fireDivePrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 4167721326739033403, guid: c73d6eeac60320c468911455cbdcd012, type: 3}
+    - target: {fileID: 5584014083016926813, guid: 74b35adbd82398e438b92490ee234447, type: 3}
+      propertyPath: fireDivePrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 3228174229694746900, guid: 753d0fd3acfc3a2489c6cffaf7d9bd80, type: 3}
+    - target: {fileID: 5584014083016926813, guid: 74b35adbd82398e438b92490ee234447, type: 3}
+      propertyPath: firePointDive
+      value: 
+      objectReference: {fileID: 993184652}
+    - target: {fileID: 5584014083016926815, guid: 74b35adbd82398e438b92490ee234447, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584014083016926815, guid: 74b35adbd82398e438b92490ee234447, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5584014083016926819, guid: 74b35adbd82398e438b92490ee234447, type: 3}
       propertyPath: m_ActionEvents.Array.size
       value: 5
@@ -8595,6 +8665,10 @@ PrefabInstance:
     - target: {fileID: 5584014083016926819, guid: 74b35adbd82398e438b92490ee234447, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584014083175773166, guid: 74b35adbd82398e438b92490ee234447, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5584014083016926808, guid: 74b35adbd82398e438b92490ee234447, type: 3}

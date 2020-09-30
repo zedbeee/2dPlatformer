@@ -15,7 +15,7 @@ public class PlayerDiveState : PlayerAbilityState
     }
     public override void Enter(){
         base.Enter();
-        
+        //player.DiveKickAesthetics();
        
     }
   
@@ -24,6 +24,8 @@ public class PlayerDiveState : PlayerAbilityState
         if (isGrounded){
             isAbilityDone = true;
             stateMachine.ChangeState(player.LandState);
+        } else {
+            
         }
         player.Anim.SetFloat("yVelocity", player.CurrentVelocity.y);
         player.Anim.SetFloat("xVelocity", Mathf.Abs(player.CurrentVelocity.x));

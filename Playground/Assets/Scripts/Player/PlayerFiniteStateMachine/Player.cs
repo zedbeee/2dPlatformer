@@ -43,7 +43,11 @@ public class Player : MonoBehaviour
 [SerializeField]
    public Transform firePointJump;
    [SerializeField]
+   public Transform firePointDive;
+   [SerializeField]
    public GameObject fireBallPrefab; 
+   [SerializeField]
+   public GameObject[] fireDivePrefab; 
    #endregion
 
     #region Other Variables
@@ -127,9 +131,13 @@ public class Player : MonoBehaviour
         Instantiate(fireBallPrefab, firePointShort.position, firePointShort.rotation);
     }
     public void ShootFireBallJump(){
-         Instantiate(fireBallPrefab, firePointJump.position, firePointJump.rotation);
+        Instantiate(fireBallPrefab, firePointJump.position, firePointJump.rotation);
     }
-
+    public void DiveKickAesthetics(){
+        foreach (GameObject i in fireDivePrefab){
+            Instantiate(i, firePointDive.position, firePointDive.rotation);
+        }
+    }
     #endregion
 
     public void SetTurning(bool a){
