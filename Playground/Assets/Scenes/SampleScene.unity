@@ -1228,6 +1228,50 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &342091228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 342091230}
+  - component: {fileID: 342091229}
+  m_Layer: 0
+  m_Name: AfterImagePool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &342091229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342091228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c636004a0802cb4398192ab9b89124e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  afterImagePrefab: {fileID: 273034370641470965, guid: d110e1634ac69e14ebe22eb60132def5, type: 3}
+--- !u!4 &342091230
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342091228}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.2478348, y: 0.463401, z: 0.0721657}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &430009612
 GameObject:
   m_ObjectHideFlags: 0
@@ -8628,10 +8672,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5584014083016926819, guid: 74b35adbd82398e438b92490ee234447, type: 3}
       propertyPath: m_ActionEvents.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5584014083016926819, guid: 74b35adbd82398e438b92490ee234447, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584014083016926819, guid: 74b35adbd82398e438b92490ee234447, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5584014083016926819, guid: 74b35adbd82398e438b92490ee234447, type: 3}
@@ -8664,6 +8712,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5584014083016926819, guid: 74b35adbd82398e438b92490ee234447, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584014083016926819, guid: 74b35adbd82398e438b92490ee234447, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584014083016926819, guid: 74b35adbd82398e438b92490ee234447, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584014083016926819, guid: 74b35adbd82398e438b92490ee234447, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionId
+      value: 5268399d-826d-4519-b15d-480a8b3bba0e
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584014083016926819, guid: 74b35adbd82398e438b92490ee234447, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionName
+      value: Gameplay/Dodge[/Keyboard/leftShift]
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584014083016926819, guid: 74b35adbd82398e438b92490ee234447, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 520164125}
+    - target: {fileID: 5584014083016926819, guid: 74b35adbd82398e438b92490ee234447, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerInputHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584014083016926819, guid: 74b35adbd82398e438b92490ee234447, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: onDodgeInput
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584014083016926819, guid: 74b35adbd82398e438b92490ee234447, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5584014083175773166, guid: 74b35adbd82398e438b92490ee234447, type: 3}

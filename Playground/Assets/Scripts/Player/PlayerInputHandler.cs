@@ -13,6 +13,7 @@ public class PlayerInputHandler : MonoBehaviour
     public bool SprintInput {get; private set;}
     public bool DiveInput {get; private set;}
     public bool AbilityOneInput {get; private set;} 
+    public bool DodgeInput{get; private set;}
     [SerializeField]
     private float inputHoldTime = 0.2f;
     private float jumpInputStartTime;
@@ -65,6 +66,15 @@ public class PlayerInputHandler : MonoBehaviour
         }
          if (context.canceled){
             AbilityOneInput = false;
+        }
+    }
+
+    public void onDodgeInput(InputAction.CallbackContext context) {
+        if (context.started){
+            DodgeInput = true;
+        }
+         if (context.canceled){
+            DodgeInput = false;
         }
     }
     public void UseSprintInput() => SprintInput = false;

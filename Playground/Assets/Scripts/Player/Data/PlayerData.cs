@@ -26,5 +26,7 @@ public class PlayerData : ScriptableObject
     [Header("Dive State")]
     public float diveVelocity = -3f;
 
+    [Header("Dodge State")]
+    public float distBetweenAfterImages = 0.1f;
     
 }

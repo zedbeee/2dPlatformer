@@ -10,6 +10,7 @@ public class PlayerGroundedState : PlayerState
     private bool AbilityOneInput;
     private bool isGrounded;
     private bool isSquat;
+    private bool DodgeInput;
     public PlayerGroundedState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base (player, stateMachine, playerData, animBoolName)
     {
 
@@ -36,6 +37,7 @@ public class PlayerGroundedState : PlayerState
         xInput = player.InputHandler.NormInputX;
         yInput = player.InputHandler.NormInputY;
         JumpInput = player.InputHandler.JumpInput;
+        DodgeInput = player.InputHandler.DodgeInput;
         AbilityOneInput = player.InputHandler.AbilityOneInput;
         player.RemainingJumps = player.NumberOfJumps;
 
@@ -45,7 +47,10 @@ public class PlayerGroundedState : PlayerState
             stateMachine.ChangeState(player.AbilityCrouchOneState);
         } else if (AbilityOneInput) {
             stateMachine.ChangeState(player.AbilityOneState);
-        } else if (!isGrounded){
+        }else if (DodgeInput) {
+            stateMachine.ChangeState(player.DodgeState);
+        }
+        else if (!isGrounded){
             stateMachine.ChangeState(player.StartFallState);
         }
     }

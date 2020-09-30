@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     public PlayerAbilityOneState AbilityOneState {get; private set;}
     public PlayerAbilityCrouchOneState AbilityCrouchOneState {get; private set;}
     public PlayerAbilityJumpOneState AbilityJumpOneState {get; private set;}
-
+    public PlayerDodgeState DodgeState{get; private set;}
 
     [SerializeField]
     private PlayerData playerData;
@@ -89,6 +89,8 @@ public class Player : MonoBehaviour
        CrouchState = new PlayerCrouchState(this, StateMachine, playerData, "crouch");
        AbilityCrouchOneState = new PlayerAbilityCrouchOneState(this, StateMachine, playerData, "abilityCrouchOne");
        AbilityJumpOneState = new PlayerAbilityJumpOneState(this, StateMachine, playerData, "abilityJumpOne");
+       DodgeState = new PlayerDodgeState(this, StateMachine, playerData, "dodge");
+
 
    }
 
