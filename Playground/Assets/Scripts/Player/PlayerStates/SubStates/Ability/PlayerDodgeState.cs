@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerDodgeState : PlayerAbilityState
 {
+    private float facingDirection;
     private Vector2 lastAfterImagePosition;
         public PlayerDodgeState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base (player, stateMachine, playerData, animBoolName)
     {
@@ -12,10 +13,12 @@ public class PlayerDodgeState : PlayerAbilityState
     public override void DoChecks()
     {
         base.DoChecks();
+        facingDirection = player.CheckFacingDirection();
         
     }
     public override void Enter(){
         base.Enter();
+        
         
     }
     public override void AnimationFinishTrigger(){
@@ -26,7 +29,6 @@ public class PlayerDodgeState : PlayerAbilityState
     public override void LogicUpdate(){
         base.LogicUpdate();
         CheckIfShouldPlaceAfterImage();
-        //PlaceAfterImage();
         if (!isAbilityDone && isAnimationFinished){
             
             isAbilityDone = true;
@@ -36,7 +38,8 @@ public class PlayerDodgeState : PlayerAbilityState
     
     public override void PhysicsUpdate(){
         base.PhysicsUpdate();
-       
+        
+        player.SetVelocityX((facingDirection *-1) * 2);
     }
 
     private void PlaceAfterImage(){

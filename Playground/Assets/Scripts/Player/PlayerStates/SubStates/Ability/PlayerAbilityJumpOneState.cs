@@ -11,6 +11,7 @@ public class PlayerAbilityJumpOneState : PlayerAbilityState
     public override void Enter(){
         base.Enter();
         player.SetVelocityX(0f);
+        player.InputHandler.UseAbilityOneInput();
         
           
     }

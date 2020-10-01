@@ -64,9 +64,7 @@ public class PlayerInputHandler : MonoBehaviour
         if (context.started){
             AbilityOneInput = true;
         }
-         if (context.canceled){
-            AbilityOneInput = false;
-        }
+         
     }
 
     public void onDodgeInput(InputAction.CallbackContext context) {

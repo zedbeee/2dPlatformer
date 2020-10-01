@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAbilityOneState : PlayerAbilityState
+public class PlayerAbilityTwoState : PlayerAbilityState
 {
     public Transform firepoint;
     public GameObject fireballPrefab;
-    public PlayerAbilityOneState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base (player, stateMachine, playerData, animBoolName)
+    public PlayerAbilityTwoState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base (player, stateMachine, playerData, animBoolName)
     {
     }
     public override void Enter(){
@@ -30,7 +30,7 @@ public class PlayerAbilityOneState : PlayerAbilityState
         
         if (!isAbilityDone && isAnimationFinished){
             if (player.InputHandler.AbilityOneInput){
-            stateMachine.ChangeState(player.AbilityTwoState);
+            stateMachine.ChangeState(player.AbilityOneState);
             }
             else {
                 isAbilityDone = true;

@@ -96,5 +96,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeTime: 1
-  alphaSet: 0.8
-  alphaMultiplier: 0.85
+  alphaSet: 0.9
+  alphaMultiplier: 0.9

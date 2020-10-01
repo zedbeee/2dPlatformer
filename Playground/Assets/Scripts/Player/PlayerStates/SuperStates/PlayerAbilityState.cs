@@ -21,6 +21,7 @@ public class PlayerAbilityState : PlayerState
     {
         base.Enter();
         isAbilityDone = false;
+        
     }
     public override void Exit()
     {
